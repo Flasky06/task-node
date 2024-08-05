@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: express-app
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://task_db_6itv_user:1Rj4peyjbW8JzAdWAhtx6VkcpxTRVlrp@dpg-cqn1kj5svqrc73fhj960-a.singapore-postgres.render.com/task_db_6itv
+      - key: NODE_ENV
+        value: production

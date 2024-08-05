@@ -4,7 +4,7 @@ const cors = require("cors");
 const { Pool } = require("pg");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors());
@@ -12,11 +12,7 @@ app.use(bodyParser.json());
 
 // PostgreSQL setup
 const pool = new Pool({
-  user: "task_db_6itv_user",
-  host: "dpg-cqn1kj5svqrc73fhj960-a.singapore-postgres.render.com",
-  database: "task_db_6itv",
-  password: "1Rj4peyjbW8JzAdWAhtx6VkcpxTRVlrp",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
